@@ -30,7 +30,7 @@
 </style>
 
 <div class="timer">
-   Time Left: <span id="timeLeft">5</span> seconds
+   Time Left: <span id="timeLeft">3</span> seconds
 </div>
 <div class="container">
    <!-- Generate 36 boxes -->
@@ -74,13 +74,13 @@
 
 <script>
    let turn = 1; // Initialize the global turn system
-   let timeLeft = 5; // Time in seconds for each turn
+   let timeLeft = 3; // Time in seconds for each turn
    const timerDisplay = document.getElementById('timeLeft');
    let timer; // To store the interval timer
 
    // Function to start the timer
    function startTimer() {
-       timeLeft = 5; // Reset the time for the current player
+       timeLeft = 3; // Reset the time for the current player
        timerDisplay.textContent = timeLeft;
        clearInterval(timer); // Clear any previous timer
        timer = setInterval(() => {
