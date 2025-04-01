@@ -1,119 +1,150 @@
+<!DOCTYPE html>
 <html>
-<body>
+<head>
 <style>
-   /* Define the grid container */
    .container {
        display: grid;
-       grid-template-columns: auto auto auto auto auto auto; /* 6 columns per row */
-       grid-template-rows: auto auto auto auto auto auto; /* 6 rows in total */
-       margin-left: 20vw;
-       margin-right: 20vw;
-       gap: 0; /* Removes space between grid items */
-       text-decoration: none;
-       font-size: 2vw;
+       grid-template-columns: repeat(6, 4vw); /* 6 columns */
+       grid-template-rows: repeat(6, 4vw); /* 6 rows */
+       gap: 0;
+       margin: 20px auto;
+       text-align: center;
    }
 
-   /* Define individual boxes */
    .box {
        border: 2px solid black;
        width: 4vw;
        height: 4vw;
-       text-align: center;
-       line-height: 4vw; /* Centers the text vertically */
+       font-size: 2vw;
+       line-height: 4vw;
    }
 
-   /* Timer display styling */
    .timer {
        margin: 20px;
        font-size: 2vw;
    }
 </style>
-
+</head>
+<body>
 <div class="timer">
    Time Left: <span id="timeLeft">3</span> seconds
 </div>
 <div class="container">
    <!-- Generate 36 boxes -->
-   <h1 id="box1" class="box" onclick="boxClick('box1')"></h1>
-   <h1 id="box2" class="box" onclick="boxClick('box2')"></h1>
-   <h1 id="box3" class="box" onclick="boxClick('box3')"></h1>
-   <h1 id="box4" class="box" onclick="boxClick('box4')"></h1>
-   <h1 id="box5" class="box" onclick="boxClick('box5')"></h1>
-   <h1 id="box6" class="box" onclick="boxClick('box6')"></h1>
-   <h1 id="box7" class="box" onclick="boxClick('box7')"></h1>
-   <h1 id="box8" class="box" onclick="boxClick('box8')"></h1>
-   <h1 id="box9" class="box" onclick="boxClick('box9')"></h1>
-   <h1 id="box10" class="box" onclick="boxClick('box10')"></h1>
-   <h1 id="box11" class="box" onclick="boxClick('box11')"></h1>
-   <h1 id="box12" class="box" onclick="boxClick('box12')"></h1>
-   <h1 id="box13" class="box" onclick="boxClick('box13')"></h1>
-   <h1 id="box14" class="box" onclick="boxClick('box14')"></h1>
-   <h1 id="box15" class="box" onclick="boxClick('box15')"></h1>
-   <h1 id="box16" class="box" onclick="boxClick('box16')"></h1>
-   <h1 id="box17" class="box" onclick="boxClick('box17')"></h1>
-   <h1 id="box18" class="box" onclick="boxClick('box18')"></h1>
-   <h1 id="box19" class="box" onclick="boxClick('box19')"></h1>
-   <h1 id="box20" class="box" onclick="boxClick('box20')"></h1>
-   <h1 id="box21" class="box" onclick="boxClick('box21')"></h1>
-   <h1 id="box22" class="box" onclick="boxClick('box22')"></h1>
-   <h1 id="box23" class="box" onclick="boxClick('box23')"></h1>
-   <h1 id="box24" class="box" onclick="boxClick('box24')"></h1>
-   <h1 id="box25" class="box" onclick="boxClick('box25')"></h1>
-   <h1 id="box26" class="box" onclick="boxClick('box26')"></h1>
-   <h1 id="box27" class="box" onclick="boxClick('box27')"></h1>
-   <h1 id="box28" class="box" onclick="boxClick('box28')"></h1>
-   <h1 id="box29" class="box" onclick="boxClick('box29')"></h1>
-   <h1 id="box30" class="box" onclick="boxClick('box30')"></h1>
-   <h1 id="box31" class="box" onclick="boxClick('box31')"></h1>
-   <h1 id="box32" class="box" onclick="boxClick('box32')"></h1>
-   <h1 id="box33" class="box" onclick="boxClick('box33')"></h1>
-   <h1 id="box34" class="box" onclick="boxClick('box34')"></h1>
-   <h1 id="box35" class="box" onclick="boxClick('box35')"></h1>
-   <h1 id="box36" class="box" onclick="boxClick('box36')"></h1>
+   <h1 id="box1" class="box" onclick="boxClick(0,0)"></h1>
+   <h1 id="box2" class="box" onclick="boxClick(0,1)"></h1>
+   <h1 id="box3" class="box" onclick="boxClick(0,2)"></h1>
+   <h1 id="box4" class="box" onclick="boxClick(0,3)"></h1>
+   <h1 id="box5" class="box" onclick="boxClick(0,4)"></h1>
+   <h1 id="box6" class="box" onclick="boxClick(0,5)"></h1>
+   <h1 id="box7" class="box" onclick="boxClick(1,0)"></h1>
+   <h1 id="box8" class="box" onclick="boxClick(1,1)"></h1>
+   <h1 id="box9" class="box" onclick="boxClick(1,2)"></h1>
+   <h1 id="box10" class="box" onclick="boxClick(1,3)"></h1>
+   <h1 id="box11" class="box" onclick="boxClick(1,4)"></h1>
+   <h1 id="box12" class="box" onclick="boxClick(1,5)"></h1>
+   <h1 id="box13" class="box" onclick="boxClick(2,0)"></h1>
+   <h1 id="box14" class="box" onclick="boxClick(2,1)"></h1>
+   <h1 id="box15" class="box" onclick="boxClick(2,2)"></h1>
+   <h1 id="box16" class="box" onclick="boxClick(2,3)"></h1>
+   <h1 id="box17" class="box" onclick="boxClick(2,4)"></h1>
+   <h1 id="box18" class="box" onclick="boxClick(2,5)"></h1>
+   <h1 id="box19" class="box" onclick="boxClick(3,0)"></h1>
+   <h1 id="box20" class="box" onclick="boxClick(3,1)"></h1>
+   <h1 id="box21" class="box" onclick="boxClick(3,2)"></h1>
+   <h1 id="box22" class="box" onclick="boxClick(3,3)"></h1>
+   <h1 id="box23" class="box" onclick="boxClick(3,4)"></h1>
+   <h1 id="box24" class="box" onclick="boxClick(3,5)"></h1>
+   <h1 id="box25" class="box" onclick="boxClick(4,0)"></h1>
+   <h1 id="box26" class="box" onclick="boxClick(4,1)"></h1>
+   <h1 id="box27" class="box" onclick="boxClick(4,2)"></h1>
+   <h1 id="box28" class="box" onclick="boxClick(4,3)"></h1>
+   <h1 id="box29" class="box" onclick="boxClick(4,4)"></h1>
+   <h1 id="box30" class="box" onclick="boxClick(4,5)"></h1>
+   <h1 id="box31" class="box" onclick="boxClick(5,0)"></h1>
+   <h1 id="box32" class="box" onclick="boxClick(5,1)"></h1>
+   <h1 id="box33" class="box" onclick="boxClick(5,2)"></h1>
+   <h1 id="box34" class="box" onclick="boxClick(5,3)"></h1>
+   <h1 id="box35" class="box" onclick="boxClick(5,4)"></h1>
+   <h1 id="box36" class="box" onclick="boxClick(5,5)"></h1>
 </div>
 
 <script>
-   let turn = 1; // Initialize the global turn system
-   let timeLeft = 3; // Time in seconds for each turn
-   const timerDisplay = document.getElementById('timeLeft');
-   let timer; // To store the interval timer
+   const rows = 6;
+   const cols = 6;
+   let turn = 1; // 1 for player "8", 0 for player "/"
+   let timeLeft = 3; // Turn time in seconds
+   const grid = Array.from({ length: rows }, () => Array(cols).fill(""));
 
-   // Function to start the timer
+   const timerDisplay = document.getElementById('timeLeft');
+   let timer;
+
    function startTimer() {
-       timeLeft = 3; // Reset the time for the current player
+       timeLeft = 3;
        timerDisplay.textContent = timeLeft;
-       clearInterval(timer); // Clear any previous timer
+       clearInterval(timer);
        timer = setInterval(() => {
            timeLeft--;
            timerDisplay.textContent = timeLeft;
            if (timeLeft <= 0) {
-               // Time's up! Automatically switch turns
                clearInterval(timer);
                turn = turn === 1 ? 0 : 1; // Switch turn
-               startTimer(); // Restart the timer for the next player
+               startTimer();
            }
-       }, 1000); // Reduce time every second
+       }, 1000);
    }
 
-   // Function to handle box clicks
-   function boxClick(boxId) {
-       const box = document.getElementById(boxId);
-
-       // Only allow the player to make a move if there's time left
-       if (timeLeft > 0 && box.innerHTML === "") {
-           if (turn === 1) {
-               box.innerHTML = "8";
-               turn = 0; // Switch turn
-           } else if (turn === 0) {
-               box.innerHTML = "/";
-               turn = 1; // Switch turn
+   function boxClick(row, col) {
+       const box = document.querySelector(`#box${row * cols + col + 1}`);
+       if (timeLeft > 0 && grid[row][col] === "") {
+           grid[row][col] = turn === 1 ? "8" : "/";
+           box.textContent = grid[row][col];
+           if (checkWin(row, col)) {
+               clearInterval(timer);
+               alert(`Player ${turn === 1 ? "8" : "/"} wins!`);
+               return;
            }
-           clearInterval(timer); // Stop the current timer
-           startTimer(); // Restart the timer for the next player
+           turn = turn === 1 ? 0 : 1;
+           startTimer();
        }
    }
 
-   // Start the timer when the page loads
+   function checkWin(row, col) {
+       const player = grid[row][col];
+
+       // Check horizontal
+       let count = 0;
+       for (let c = 0; c < cols; c++) {
+           count = grid[row][c] === player ? count + 1 : 0;
+           if (count === 4) return true;
+       }
+
+       // Check vertical
+       count = 0;
+       for (let r = 0; r < rows; r++) {
+           count = grid[r][col] === player ? count + 1 : 0;
+           if (count === 4) return true;
+       }
+
+       // Check diagonal (top-left to bottom-right)
+       count = 0;
+       for (let offset = -Math.min(row, col); row + offset < rows && col + offset < cols; offset++) {
+           const r = row + offset, c = col + offset;
+           count = grid[r][c] === player ? count + 1 : 0;
+           if (count === 4) return true;
+       }
+
+       // Check diagonal (bottom-left to top-right)
+       count = 0;
+       for (let offset = -Math.min(row, cols - col - 1); row + offset < rows && col - offset >= 0; offset++) {
+           const r = row + offset, c = col - offset;
+           count = grid[r][c] === player ? count + 1 : 0;
+           if (count === 4) return true;
+       }
+
+       return false;
+   }
+
    startTimer();
 </script>
 </body>
